@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project-private xmlns="http://www.netbeans.org/ns/project-private/1">
+    <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
+    <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
+        <group>
+            <file>file:/C:/Users/ditop/Documents/NetBeansProjects/ProjetoCheckNovelList/src/br/com/pcnl/view/JFrameCNL.java</file>
+            <file>file:/C:/Users/ditop/Documents/NetBeansProjects/ProjetoCheckNovelList/src/br/com/pcnl/dao/ClientesDAO.java</file>
+            <file>file:/C:/Users/ditop/Documents/NetBeansProjects/ProjetoCheckNovelList/src/br/com/pcnl/model/Clientes.java</file>
+            <file>file:/C:/Users/ditop/Documents/NetBeansProjects/ProjetoCheckNovelList/src/br/com/pcnl/dao/NovelsDAO.java</file>
+            <file>file:/C:/Users/ditop/Documents/NetBeansProjects/ProjetoCheckNovelList/src/br/com/pcnl/jbdc/ConnectionTest.java</file>
+            <file>file:/C:/Users/ditop/Documents/NetBeansProjects/ProjetoCheckNovelList/src/br/com/pcnl/jbdc/ConnectionFactory.java</file>
+            <file>file:/C:/Users/ditop/Documents/NetBeansProjects/ProjetoCheckNovelList/src/br/com/pcnl/model/Novels.java</file>
+        </group>
+    </open-files>
+</project-private>

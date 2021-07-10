@@ -15,7 +15,7 @@ public class Novels {
         this.id = id;
     }
 
-    public String getNome() {
+    public String getTitulo() {
         return titulo;
     }
 

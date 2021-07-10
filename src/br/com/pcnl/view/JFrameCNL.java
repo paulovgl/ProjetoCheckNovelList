@@ -9,6 +9,9 @@ import br.com.pcnl.dao.ClientesDAO;
 import br.com.pcnl.dao.NovelsDAO;
 import br.com.pcnl.model.Clientes;
 import br.com.pcnl.model.Novels;
+import java.util.List;
+import javax.swing.table.DefaultTableModel;
+
 
 /**
  *
@@ -21,6 +24,43 @@ public class JFrameCNL extends javax.swing.JFrame {
      */
     public JFrameCNL() {
         initComponents();
+    }
+    
+    public void listarClientes(){
+        ClientesDAO dao = new ClientesDAO();
+        
+        List<Clientes> lista = dao.listarClientes();
+        DefaultTableModel dados = (DefaultTableModel) tabelaC.getModel();
+        dados.setNumRows(0);
+        
+        for (Clientes clientes : lista) {
+            dados.addRow(new Object[]{
+                clientes.getNome(),
+                clientes.getCpf(),
+                clientes.getEmail(),
+                clientes.getCelular(),
+                clientes.getCidade(),
+                clientes.getEstado()
+            });
+        }
+    }
+    
+    public void listarNovels(){
+        NovelsDAO dao = new NovelsDAO();
+        
+        List<Novels> lista = dao.listarNovels();
+        DefaultTableModel  dados = (DefaultTableModel) tabelaN.getModel();
+        dados.setNumRows(0);
+        
+        for (Novels novels : lista) {
+            dados.addRow(new Object[]{
+                novels.getTitulo(),
+                novels.getAutor(),
+                novels.getGenero(),
+                novels.getLink()
+            });
+        }
+        
     }
 
     /**
@@ -71,6 +111,11 @@ public class JFrameCNL extends javax.swing.JFrame {
         tabelaN = new javax.swing.JTable();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowActivated(java.awt.event.WindowEvent evt) {
+                formWindowActivated(evt);
+            }
+        });
 
         jPanel1.setBackground(new java.awt.Color(102, 0, 102));
 
@@ -506,6 +551,11 @@ public class JFrameCNL extends javax.swing.JFrame {
     private void btnEditarNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditarNActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_btnEditarNActionPerformed
+
+    private void formWindowActivated(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowActivated
+        listarClientes();
+        listarNovels();
+    }//GEN-LAST:event_formWindowActivated
 
     /**
      * @param args the command line arguments
