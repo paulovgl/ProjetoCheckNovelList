@@ -54,6 +54,7 @@ public class ClientesDAO {
             while (rs.next()){
                 Clientes cli = new Clientes();
                 
+                cli.setId(rs.getInt("id"));
                 cli.setNome(rs.getString("nome"));
                 cli.setCpf(rs.getString("cpf"));
                 cli.setEmail(rs.getString("email"));
@@ -70,4 +71,23 @@ public class ClientesDAO {
             return null;
         }
     }
+    
+    public void excluirClientes(Clientes cli){
+        try {
+
+            String sql = "DELETE FROM tb_clientes_cnl WHERE id = ?";
+            PreparedStatement stmt = connection.prepareStatement(sql);
+
+            stmt.setInt(1, cli.getId());
+
+            stmt.execute();
+            stmt.close();
+
+            JOptionPane.showMessageDialog(null, "Excluido com sucesso!");
+
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, "Erro: " + ex);
+        }
+    }
+    
 }

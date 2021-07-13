@@ -53,6 +53,7 @@ public class NovelsDAO {
             while (rs.next()){
                 Novels nov = new Novels();
                 
+                nov.setId(rs.getInt("id"));
                 nov.setTitulo(rs.getString("nome"));
                 nov.setAutor(rs.getString("autor"));
                 nov.setGenero(rs.getString("genero"));
@@ -66,6 +67,24 @@ public class NovelsDAO {
         } catch (SQLException e) {
             JOptionPane.showMessageDialog(null, "Erro: " + e);
             return null;
+        }
+    }
+    
+    public void excluirNovels(Novels nov){
+        try {
+
+            String sql = "DELETE FROM tb_novels_cnl WHERE id = ?";
+            PreparedStatement stmt = connection.prepareStatement(sql);
+
+            stmt.setInt(1, nov.getId());
+
+            stmt.execute();
+            stmt.close();
+
+            JOptionPane.showMessageDialog(null, "Excluido com sucesso!");
+
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, "Erro: " + ex);
         }
     }
 }
